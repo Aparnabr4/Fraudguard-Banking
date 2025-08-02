@@ -197,10 +197,6 @@ A machine learning-based system that detects fraudulent financial transactions i
 =======
 ---
 
-
-
->>>>>>> 1a271cca2cbc9fda6db3c1d894508ac25efbe0de
-
 🧪 Case Study: Sample Predictions
 ✅ Non-Fraudulent Transactions
 Case 1:
