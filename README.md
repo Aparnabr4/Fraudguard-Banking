@@ -1,32 +1,35 @@
 💳 Fraud Detection System
 A machine learning-based system that detects fraudulent financial transactions in real time using an XGBoost model and a FastAPI backend.
-🚀 Overview
 
-Predicts whether a transaction is fraudulent or legitimate.
-Uses features like amount, category, time, and user behavior.
-Deployed using FastAPI to enable real-time fraud checks.
-Built with XGBoost, and handles class imbalance with SMOTE.
+🚀 **Overview**
 
-✅ Features
+- Predicts whether a transaction is fraudulent or legitimate.
+- Uses features like amount, category, time, and user behavior.
+- Deployed using FastAPI to enable real-time fraud checks.
+- Built with XGBoost, and handles class imbalance with SMOTE.
 
-📊 Trains an XGBoost model for high accuracy.
-⚖️ Handles class imbalance using SMOTE (Synthetic Minority Oversampling Technique).
-🧠 Performs hyperparameter tuning via GridSearchCV.
-🌐 Provides a REST API for real-time fraud prediction.
-📝 Accepts custom transaction input with automatic categorical encoding.
+  
+✅ **Features**
 
-📦 Prerequisites
+- 📊 Trains an XGBoost model for high accuracy.
+- ⚖️ Handles class imbalance using SMOTE (Synthetic Minority Oversampling Technique).
+- 🧠 Performs hyperparameter tuning via GridSearchCV.
+- 🌐 Provides a REST API for real-time fraud prediction.
+- 📝 Accepts custom transaction input with automatic categorical encoding.
 
-🐍 Python 3.13
-✅ Use of a virtual environment is recommended
-📚 Required Python libraries:
-pandas
-xgboost
-scikit-learn
-imblearn
-fastapi
-uvicorn
-joblib
+
+📦 **Prerequisites**
+
+- 🐍 Python 3.13  
+- ✅ Use of a virtual environment is recommended  
+- 📚 Required Python libraries:
+  - `pandas`
+  - `xgboost`
+  - `scikit-learn`
+  - `imblearn`
+  - `fastapi`
+  - `uvicorn`
+  - `joblib`
 
 
 
