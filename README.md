@@ -1,12 +1,11 @@
 💳 Fraud Detection System
 A machine learning-based system that detects fraudulent financial transactions in real time using an XGBoost model and a FastAPI backend.
-
 🚀 Overview
--Predicts whether a transaction is fraudulent or legitimate.
--Uses features like amount, category, time, and user behavior.
--Deployed using FastAPI to enable real-time fraud checks.
--Built with XGBoost, and handles class imbalance with SMOTE.
 
+Predicts whether a transaction is fraudulent or legitimate.
+Uses features like amount, category, time, and user behavior.
+Deployed using FastAPI to enable real-time fraud checks.
+Built with XGBoost, and handles class imbalance with SMOTE.
 
 ✅ Features
 
@@ -17,16 +16,18 @@ A machine learning-based system that detects fraudulent financial transactions i
 📝 Accepts custom transaction input with automatic categorical encoding.
 
 📦 Prerequisites
--🐍 Python 3.13
--✅ Use of a virtual environment is recommended
--📚 Required Python libraries:
---pandas
---xgboost
---scikit-learn
---imblearn
---fastapi
---uvicorn
---joblib
+
+🐍 Python 3.13
+✅ Use of a virtual environment is recommended
+📚 Required Python libraries:
+pandas
+xgboost
+scikit-learn
+imblearn
+fastapi
+uvicorn
+joblib
+
 
 
 ✅ FraudGuard - Block Diagram
@@ -36,13 +37,13 @@ A machine learning-based system that detects fraudulent financial transactions i
            |
            v
 +--------------------------+
-| FastAPI Application      |
-|  (main.py, endpoints.py) |
+|   FastAPI Application    |
+| (main.py, endpoints.py)  |
 +----------+---------------+
            |
            v
 +---------------------------+
-| Input Validation          |
+|     Input Validation      |
 | (TransactionInput model)  |
 +---------------------------+
            |
@@ -57,14 +58,14 @@ A machine learning-based system that detects fraudulent financial transactions i
            |
            v
 +---------------------------+
-| Preprocess Input Data     |
+|   Preprocess Input Data   |
 | - Encode categorical      |
 | - Select saved features   |
 +---------------------------+
            |
            v
 +---------------------------+
-| Predict Fraud             |
+|      Predict Fraud        |
 | (predict_fraud function)  |
 | → is_fraud (0/1)          |
 | → fraud_probability       |
@@ -72,22 +73,19 @@ A machine learning-based system that detects fraudulent financial transactions i
            |
            v
 +---------------------------+
-| Return JSON Response      |
+|    Return JSON Response   |
 | (PredictionResponse model)|
 +---------------------------+
 
-
-
 🔁 Model Training Flow
-
 +----------------------------+
-| Run: /train API            |
+|      Run: /train API       |
 +------------+---------------+
              |
              v
 +--------------------------------------+
-| Load Raw Data (CSV)                  |
-| e.g., data/preprocessed_dataset.csv  |
+|     Load Raw Data (CSV)            |
+| e.g., data/preprocessed_dataset.csv |
 +------------+-------------------------+
              |
              v
@@ -99,25 +97,21 @@ A machine learning-based system that detects fraudulent financial transactions i
              |
              v
 +----------------------------+
-| Train Model (LightGBM)     |
+|  Train Model (LightGBM)    |
 +------------+---------------+
              |
              v
 +---------------------------+
-| Save:                     |
+|         Save:             |
 | - model.pkl               |
 | - encoder.pkl             |
 | - features.pkl            |
 +---------------------------+
 
-
 🧪 Case Study: Sample Predictions
 ✅ Non-Fraudulent Transactions
-
-
-case 1:
-
- {
+Case 1:
+{
   "amount": 250.50,
   "balance": 3500.75,
   "age": 34,
@@ -126,8 +120,8 @@ case 1:
   "is_international": true
 }
 
-case 2:
- {
+Case 2:
+{
   "amount": 1200.00,
   "balance": 5200.00,
   "age": 38,
@@ -135,8 +129,8 @@ case 2:
   "transaction_type": "transfer",
   "is_international": false
 }
- 
-case 3:
+
+Case 3:
 {
   "amount": 600.25,
   "balance": 1500.80,
@@ -145,13 +139,10 @@ case 3:
   "transaction_type": "payment",
   "is_international": false
 }
- 
 
 🚨 Fraudulent Transactions
-
-case 1:
-
- {
+Case 1:
+{
   "amount": 97500.00,
   "balance": 10.00,
   "age": 19,
@@ -160,9 +151,8 @@ case 1:
   "is_international": true
 }
 
-case 2:
-
- {
+Case 2:
+{
   "amount": 88000.00,
   "balance": 5.00,
   "age": 21,
@@ -171,7 +161,7 @@ case 2:
   "is_international": true
 }
 
-case 3:
+Case 3:
 {
   "amount": 99999.99,
   "balance": 0.00,
