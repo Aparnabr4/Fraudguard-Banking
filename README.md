@@ -31,6 +31,89 @@ joblib
 
 
 ✅ FraudGuard - Block Diagram
+
+```text
++-----------------------+
+|    User/API Client    |
++----------+------------+
+           |
+           v
++--------------------------+
+| FastAPI Application      |
+|  (main.py, endpoints.py) |
++----------+---------------+
+           |
+           v
++---------------------------+
+| Input Validation          |
+| (TransactionInput model)  |
++---------------------------+
+           |
+           v
++---------------------------+
+| Load Trained ML Model     |
+| - model.pkl               |
+| - encoder.pkl             |
+| - features.pkl            |
+| (.env used for paths)     |
++---------------------------+
+           |
+           v
++---------------------------+
+| Preprocess Input Data     |
+| - Encode categorical      |
+| - Select saved features   |
++---------------------------+
+           |
+           v
++---------------------------+
+| Predict Fraud             |
+| (predict_fraud function)  |
+| → is_fraud (0/1)          |
+| → fraud_probability       |
++---------------------------+
+           |
+           v
++---------------------------+
+| Return JSON Response      |
+| (PredictionResponse model)|
++---------------------------+
+'''
+
+
+🔁 Model Training Flow
+
+```text
++----------------------------+
+| Run: /train API            |
++------------+---------------+
+             |
+             v
++--------------------------------------+
+| Load Raw Data (CSV)                  |
+| e.g., data/preprocessed_dataset.csv  |
++------------+-------------------------+
+             |
+             v
++----------------------------+
+| Preprocess + Feature Engg. |
+| - Label encode             |
+| - Feature selection        |
++------------+---------------+
+             |
+             v
++----------------------------+
+| Train Model (LightGBM)     |
++------------+---------------+
+             |
+             v
++---------------------------+
+| Save:                     |
+| - model.pkl               |
+| - encoder.pkl             |
+| - features.pkl            |
++---------------------------+
+
 +-----------------------+
 |    User/API Client    |
 +----------+------------+
@@ -77,6 +160,7 @@ joblib
 | (PredictionResponse model)|
 +---------------------------+
 
+<<<<<<< HEAD
 🔁 Model Training Flow
 +----------------------------+
 |      Run: /train API       |
@@ -107,6 +191,12 @@ joblib
 | - encoder.pkl             |
 | - features.pkl            |
 +---------------------------+
+=======
+---
+
+
+
+>>>>>>> 1a271cca2cbc9fda6db3c1d894508ac25efbe0de
 
 🧪 Case Study: Sample Predictions
 ✅ Non-Fraudulent Transactions
