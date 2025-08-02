@@ -30,6 +30,89 @@ A machine learning-based system that detects fraudulent financial transactions i
 
 
 ✅ FraudGuard - Block Diagram
+
+```text
++-----------------------+
+|    User/API Client    |
++----------+------------+
+           |
+           v
++--------------------------+
+| FastAPI Application      |
+|  (main.py, endpoints.py) |
++----------+---------------+
+           |
+           v
++---------------------------+
+| Input Validation          |
+| (TransactionInput model)  |
++---------------------------+
+           |
+           v
++---------------------------+
+| Load Trained ML Model     |
+| - model.pkl               |
+| - encoder.pkl             |
+| - features.pkl            |
+| (.env used for paths)     |
++---------------------------+
+           |
+           v
++---------------------------+
+| Preprocess Input Data     |
+| - Encode categorical      |
+| - Select saved features   |
++---------------------------+
+           |
+           v
++---------------------------+
+| Predict Fraud             |
+| (predict_fraud function)  |
+| → is_fraud (0/1)          |
+| → fraud_probability       |
++---------------------------+
+           |
+           v
++---------------------------+
+| Return JSON Response      |
+| (PredictionResponse model)|
++---------------------------+
+'''
+
+
+🔁 Model Training Flow
+
+```text
++----------------------------+
+| Run: /train API            |
++------------+---------------+
+             |
+             v
++--------------------------------------+
+| Load Raw Data (CSV)                  |
+| e.g., data/preprocessed_dataset.csv  |
++------------+-------------------------+
+             |
+             v
++----------------------------+
+| Preprocess + Feature Engg. |
+| - Label encode             |
+| - Feature selection        |
++------------+---------------+
+             |
+             v
++----------------------------+
+| Train Model (LightGBM)     |
++------------+---------------+
+             |
+             v
++---------------------------+
+| Save:                     |
+| - model.pkl               |
+| - encoder.pkl             |
+| - features.pkl            |
++---------------------------+
+
 +-----------------------+
 |    User/API Client    |
 +----------+------------+
@@ -76,39 +159,10 @@ A machine learning-based system that detects fraudulent financial transactions i
 | (PredictionResponse model)|
 +---------------------------+
 
+---
 
 
-🔁 Model Training Flow
 
-+----------------------------+
-| Run: /train API            |
-+------------+---------------+
-             |
-             v
-+--------------------------------------+
-| Load Raw Data (CSV)                  |
-| e.g., data/preprocessed_dataset.csv  |
-+------------+-------------------------+
-             |
-             v
-+----------------------------+
-| Preprocess + Feature Engg. |
-| - Label encode             |
-| - Feature selection        |
-+------------+---------------+
-             |
-             v
-+----------------------------+
-| Train Model (LightGBM)     |
-+------------+---------------+
-             |
-             v
-+---------------------------+
-| Save:                     |
-| - model.pkl               |
-| - encoder.pkl             |
-| - features.pkl            |
-+---------------------------+
 
 
 🧪 Case Study: Sample Predictions
