@@ -1,4 +1,4 @@
-💳 Fraud Detection System
+💳 **Fraud Detection System**
 A machine learning-based system that detects fraudulent financial transactions in real time using an XGBoost model and a FastAPI backend.
 
 🚀 **Overview**
